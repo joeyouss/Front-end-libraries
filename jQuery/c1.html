@@ -1,0 +1,61 @@
+<!-- creating a simple button container-fluid to add animations -->
+
+<!-- jQuery begins -->
+<script>
+    // document ready  ensures the function executes as soon as the page is loaded else it would run before html and create glitches
+    $(document).ready(function() {
+        // targetting by name
+        $("button").addClass("animated bounce");
+        // targeting by class
+        $(".well").addClass("animated shake");
+        // targeting by id
+        $("#target3").addClass("animated fadeOut");
+        // to remove a class
+        $("button").removeClass("btn-default");
+        // .css() ensures to change the styling using jQuery
+        $("#target1").css("color", "red");
+        // prop() function allows you to change the properties, here disabled ensures that the button is no longer clickable
+        $("#target1").prop("disabled", true);
+        // jQuery uses .html() to add or remove any html element with a bunch of functionalities
+        $("target4").html("<em>any heading</end>")
+            // for appending one element to another container
+        $("#target2").appendTo("#right-well")
+            // jQuery to access any element's parent container
+        $("#target1").parent().css("background-color", "red");
+        // jQuery to access any element's child
+        $("#right-well").children().css("color", "orange");
+        // jQuery to make only the second child of class target to bounce- can be used when we do have clearly
+        //  marked ids or is reduntant
+        $(".target:nth-child(2)").addClass("animated bounce");
+        $("body").addClass("animated hinge");
+
+
+    });
+</script>
+
+
+<!--html begins with boostrap-4 -->
+<div class="container-fluid">
+    <h3 class="text-primary text-center">jQuery Playground</h3>
+    <div class="row">
+        <div class="col-xs-6">
+            <h4>#left-well</h4>
+            <!-- well class to add a deeper column -->
+            <div class="well" id="left-well">
+                <!-- using bootstrap -->
+                <button class="btn btn-default target" id="target1">#target1</button>
+                <button class="btn btn-default target" id="target2">#target2</button>
+                <button class="btn btn-default target" id="target3">#target3</button>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <h4>#right-well</h4>
+            <div class="well" id="right-well">
+                <!-- using bootstrap -->
+                <button class="btn btn-default target" id="target4">#target4</button>
+                <button class="btn btn-default target" id="target5">#target5</button>
+                <button class="btn btn-default target" id="target6">#target6</button>
+            </div>
+        </div>
+    </div>
+</div>
