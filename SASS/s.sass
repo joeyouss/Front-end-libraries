@@ -1,0 +1,79 @@
+/**
+Sass, or "Syntactically Awesome StyleSheets", is a language extension of CSS. 
+It adds features that aren't available using basic CSS syntax. 
+Sass makes it easier for developers to simplify and maintain the style 
+sheets for their projects.
+
+
+$ - used for declaring variables
+@ - used for functions
+**/
+
+//mixin for reusability of code
+
+n Sass, a mixin is a group of CSS declarations that can be reused throughout the style sheet.
+
+/**
+Newer CSS features take time before they are fully adopted 
+and ready to use in all browsers. As features are added to browsers, 
+CSS rules using them may need vendor prefixes.
+**/
+
+<style type='text/scss'>
+
+  @mixin border-radius($radius){ 
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  box-border-radius: $radius;
+}
+
+  #awesome {
+    @include border-radius(15px);
+    width: 150px;
+    height: 150px;
+    background-color: green;
+
+  }
+</style>
+
+<div id="awesome"></div>
+
+
+
+/** mixin with if else condition**/
+@mixin border-stroke($val){
+      @if $val==light {
+          border: 1px solid black;
+      }
+      @else if $val==medium{
+        border: 3px solid black;
+      }
+      @else if $val==heavy{
+        border: 6px solid black;
+      }
+      @else{
+        border: none;
+      }
+  }
+
+
+  /** sass for loop for start THROUGH end (end is included) **/
+  @for $i from 1 through 12 {
+  .col-#{$i} { width: 100%/12 * $i; }
+}
+
+  /**sass for loop for start TO end (end is not included)**/
+  @for $i from 1 to 6{
+    .text-#{$i}{
+        font-size:15px*$i;
+    }
+}
+
+@each $color in blue,black,red{
+    .#{$color}-bg
+    {
+      background-color : $color;
+    }
+  }
+
