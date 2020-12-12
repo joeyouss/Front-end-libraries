@@ -2,7 +2,10 @@
 
 <!-- jQuery begins -->
 <script>
-    // document ready  ensures the function executes as soon as the page is loaded else it would run before html and create glitches
+    // document ready  ensures the function executes as soon as the page is loaded else 
+    // it would run before html and create glitches
+
+    // one other way to avoid is by placing the cdn AND JQUERY LINE IN THE END OF BODY TAG IN HTML
     $(document).ready(function() {
         // targetting by name
         $("button").addClass("animated bounce");
@@ -17,7 +20,7 @@
         // prop() function allows you to change the properties, here disabled ensures that the button is no longer clickable
         $("#target1").prop("disabled", true);
         // jQuery uses .html() to add or remove any html element with a bunch of functionalities
-        $("target4").html("<em>any heading</end>")
+        $("target4").html("<em>any heading</em>")
             // for appending one element to another container
         $("#target2").appendTo("#right-well")
             // jQuery to access any element's parent container
@@ -28,6 +31,24 @@
         //  marked ids or is reduntant
         $(".target:nth-child(2)").addClass("animated bounce");
         $("body").addClass("animated hinge");
+        // change the text
+        $("h1").text("hello");
+
+        // adding codes with js
+        $("h1").before("<button>text here</button>");
+        $("h1").after("<button>text here</button>");
+        $("h1").prepend("<button>text here</button>");
+        $("h1").append("<button>text here</button>");
+
+        // adding event listeners
+        $("h1").on("click", function() {
+            $("h1").fadeOut();
+        })
+        $("h1").on("click", function() {
+            $("h1").animate({
+                opacity: 0.5
+            }); //only numeric value css properties allowed
+        })
 
 
     });
